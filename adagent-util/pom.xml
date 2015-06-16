@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+$Id$
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.netsol.adagent</groupId>
+  <artifactId>adagent-util</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>AdAgent Util</name>
+  <url>http://www.networksolutions.com</url>
+
+  <!--
+  Include the standard top-level POM.
+  -->
+  <parent>
+    <groupId>com.netsol.adagent</groupId>
+    <artifactId>adagent-base</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <properties>
+    <!--
+    Skip tests by default.
+    To run with tests enabled:
+      mvn test -DskipTests=false
+    -->
+    <skipTests>true</skipTests>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>commons-httpclient</groupId>
+      <artifactId>commons-httpclient</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-pool</groupId>
+      <artifactId>commons-pool</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>net.spy</groupId>
+      <artifactId>memcached</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>net.spy</groupId>
+      <artifactId>spy</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.netsol.Async-Services</groupId>
+      <artifactId>Registrar-Utils</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.netsol.Webservices-APIs</groupId>
+      <artifactId>webservices-ccg-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.netsol.adagent</groupId>
+      <artifactId>webservices-adagent-vendor-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.netsol.adagent</groupId>
+      <artifactId>adagent-ws-common</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.netsol.adagent</groupId>
+      <artifactId>adagent-ws-client</artifactId>
+    </dependency>
+
+    <!-- Unit tests -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.thoughtworks.xstream</groupId>
+      <artifactId>xstream</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
