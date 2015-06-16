@@ -311,49 +311,6 @@ public abstract class BaseHelper extends BaseLoggable {
     }
 
     /**
-     * Return a new connection to the DEV GDB.
-     */
-    public static Connection createDevGdbConnection() throws SQLException {
-        return createConnection("jdbc:mysql://eng1.dev.netsol.com:4200/adagent?user=adagent&password=adagent");
-    }
-
-    /**
-     * Return a new connection to the DEV PDB 1.
-     */
-    public static Connection createDevPdb1Connection() throws SQLException {
-        return createConnection("jdbc:mysql://eng2.dev.netsol.com:4300/adagent?user=adagent&password=adagent");
-    }
-
-    /**
-     * Return a new connection to the DEV PDB 2.
-     */
-    public static Connection createDevPdb2Connection() throws SQLException {
-        return createConnection("jdbc:mysql://eng2.dev.netsol.com:4301/adagent?user=adagent&password=adagent");
-    }
-
-    /**
-     * Return a new connection to the DEV PDB 1.
-     */
-    @Deprecated
-    public static Connection createDevPdbConnection() throws SQLException {
-        return createDevPdb1Connection();
-    }
-
-    /**
-     * Return a new connection to the INT2 GDB.
-     */
-    public static Connection createInt2GdbConnection() throws SQLException {
-        return createConnection("jdbc:mysql://aadb1.int2.netsol.com:4200/adagent?user=adagent&password=adagent");
-    }
-
-    /**
-     * Return a new connection to the INT2 PDB 1.
-     */
-    public static Connection createInt2Pdb1Connection() throws SQLException {
-        return createConnection("jdbc:mysql://aadb1.int2.netsol.com:4300/adagent?user=adagent&password=adagent");
-    }
-
-    /**
      * Return the current time as a SQL time stamp.
      */
     public static java.sql.Timestamp currentTimestamp() {
