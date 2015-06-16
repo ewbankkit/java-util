@@ -16,9 +16,9 @@ import javax.net.ssl.X509TrustManager;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import sun.security.x509.AccessDescription;
-import sun.security.x509.AuthorityInfoAccessExtension;
-import sun.security.x509.X509CertImpl;
+//import sun.security.x509.AccessDescription;
+//import sun.security.x509.AuthorityInfoAccessExtension;
+//import sun.security.x509.X509CertImpl;
 
 /**
  * Base trust manager.
@@ -76,20 +76,20 @@ public abstract class BaseTrustManager implements X509TrustManager {
                append("\n-----------------");
             appendAlternativeNames(sb, x509Certificate.getSubjectAlternativeNames(), "\nSubject alternative names:");
             appendAlternativeNames(sb, x509Certificate.getIssuerAlternativeNames(),  "\nIssuer alternative names:");
-            if (x509Certificate instanceof X509CertImpl) {
-                AuthorityInfoAccessExtension authorityInfoAccessExtension = ((X509CertImpl)x509Certificate).getAuthorityInfoAccessExtension();
-                if (authorityInfoAccessExtension != null) {
-                    sb.append("\nAuthority information access:");
-                    @SuppressWarnings("unchecked")
-                    List<AccessDescription> accessDescriptions = (List<AccessDescription>)authorityInfoAccessExtension.get(AuthorityInfoAccessExtension.DESCRIPTIONS);
-                    if (accessDescriptions != null) {
-                        for (AccessDescription accessDescription : accessDescriptions) {
-                            sb.append("\n  Access method  : ").append(accessDescription.getAccessMethod()).
-                               append("\n  Access location: ").append(accessDescription.getAccessLocation());
-                        }
-                    }
-                }
-            }
+//            if (x509Certificate instanceof X509CertImpl) {
+//                AuthorityInfoAccessExtension authorityInfoAccessExtension = ((X509CertImpl)x509Certificate).getAuthorityInfoAccessExtension();
+//                if (authorityInfoAccessExtension != null) {
+//                    sb.append("\nAuthority information access:");
+//                    @SuppressWarnings("unchecked")
+//                    List<AccessDescription> accessDescriptions = (List<AccessDescription>)authorityInfoAccessExtension.get(AuthorityInfoAccessExtension.DESCRIPTIONS);
+//                    if (accessDescriptions != null) {
+//                        for (AccessDescription accessDescription : accessDescriptions) {
+//                            sb.append("\n  Access method  : ").append(accessDescription.getAccessMethod()).
+//                               append("\n  Access location: ").append(accessDescription.getAccessLocation());
+//                        }
+//                    }
+//                }
+//            }
 
             return sb;
         }

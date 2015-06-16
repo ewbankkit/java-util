@@ -7,6 +7,8 @@ package com.netsol.adagent.util.dbhelpers;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
+import java.util.logging.Logger;
 
 import javax.sql.DataSource;
 
@@ -71,6 +73,11 @@ public class SimpleDataSourceFactory implements DataSourceFactory {
             throw new UnsupportedOperationException();
         }
 
+        @Override
+        public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+            return null;
+        }
+
         /**
          * Set the log writer for this DataSource  object to the given PrintWriter object.
          */
@@ -83,6 +90,16 @@ public class SimpleDataSourceFactory implements DataSourceFactory {
          */
         public void setLoginTimeout(int seconds) throws SQLException {
             throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public <T> T unwrap(Class<T> iface) throws SQLException {
+            return null;
+        }
+
+        @Override
+        public boolean isWrapperFor(Class<?> iface) throws SQLException {
+            return false;
         }
     }
 }
