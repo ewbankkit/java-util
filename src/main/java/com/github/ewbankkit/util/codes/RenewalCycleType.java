@@ -1,5 +1,5 @@
 /**
- * Copyright (C) Network Solutions, LLC.
+ * Kit's Java Utils.
  */
 
 package com.github.ewbankkit.util.codes;
