@@ -1764,20 +1764,6 @@ public abstract class BaseHelper {
     }
 
     /**
-     * Factory class used to create a product instance ID from a result set.
-     */
-    protected static class ProdInstIdFactory extends StringFactory {
-        public static final ProdInstIdFactory INSTANCE = new ProdInstIdFactory();
-
-        /**
-         * Constructor.
-         */
-        private ProdInstIdFactory() {
-            super("prod_inst_id");
-        }
-    }
-
-    /**
      * Represents IN clause parameters.
      */
     protected static class InClauseParameters {
