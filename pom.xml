@@ -13,13 +13,6 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <!--
-        Skip tests by default.
-        To run with tests enabled:
-          mvn test -DskipTests=false
-        -->
-        <skipTests>true</skipTests>
     </properties>
 
     <dependencyManagement>
@@ -116,7 +109,7 @@
                     <version>2.18.1</version>
                     <configuration>
                         <excludes>
-                            <exclude>**/*ManualTest.java</exclude>
+                            <exclude>**/HttpClientFactoryUnitTest.java</exclude>
                         </excludes>
                     </configuration>
                 </plugin>

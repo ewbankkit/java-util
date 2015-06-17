@@ -4,24 +4,37 @@
 
 package com.github.ewbankkit.util;
 
-import static org.junit.Assert.assertTrue;
-
-import java.io.IOException;
-
+import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import static org.junit.Assert.assertTrue;
+
 public class IOUtilUnitTest {
-    public final static String sccsId = "@(#) adagent-util_d16.16.0.latest 08/09/12 09:55:04 IOUtilUnitTest.java NSI";
+    private Path   tempFile;
+    private String tempFileName;
+
+    @Before
+    public void before() {
+        tempFile = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt");
+        tempFileName = tempFile.toString();
+    }
 
     @Test
     public void readTextFileTest1() throws IOException {
-        String string = IOUtil.readTextFile("C:\\TEMP\\test.txt");
+        Files.write(tempFile, "Some stuff".getBytes());
+        String string = IOUtil.readTextFile(tempFileName);
         assertTrue(string.length() > 0);
     }
 
     @Test
     public void readBinaryFileTest1() throws IOException {
-        byte[] bytes = IOUtil.readBinaryFile("C:\\TEMP\\test.txt");;
+        Files.write(tempFile, "Some stuff".getBytes());
+        byte[] bytes = IOUtil.readBinaryFile(tempFileName);;
         assertTrue(bytes.length > 0);
         IOUtil.copyToStream(bytes, System.out);
     }
