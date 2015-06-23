@@ -6,7 +6,7 @@
 
     <groupId>com.github.ewbankkit</groupId>
     <artifactId>java-util</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Java Utilities</name>
