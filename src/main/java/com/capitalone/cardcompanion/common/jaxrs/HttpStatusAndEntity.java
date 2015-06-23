@@ -1,5 +1,5 @@
 //
-// Copyright (C) Capital One Labs.
+// Kit's Java Utils.
 //
 
 package com.capitalone.cardcompanion.common.jaxrs;
