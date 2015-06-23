@@ -2,7 +2,7 @@
 // Kit's Java Utils.
 //
 
-package com.capitalonelabs.eucalyptus.ledger;
+package com.github.ewbankkit;
 
 import org.junit.Assert;
 import org.junit.Before;

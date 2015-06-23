@@ -2,7 +2,7 @@
 // Kit's Java Utils.
 //
 
-package com.capitalonelabs.eucalyptus.ledger;
+package com.github.ewbankkit;
 
 import org.apache.tomcat.jdbc.pool.PoolConfiguration;
 import org.apache.tomcat.jdbc.pool.PoolProperties;

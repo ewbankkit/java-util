@@ -2,7 +2,7 @@
 // Kit's Java Utils.
 //
 
-package com.capitalonelabs.eucalyptus.ledger;
+package com.github.ewbankkit;
 
 import java.math.BigDecimal;
 import java.util.Currency;

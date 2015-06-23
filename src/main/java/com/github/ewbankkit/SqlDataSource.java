@@ -2,7 +2,7 @@
 // Kit's Java Utils.
 //
 
-package com.capitalonelabs.eucalyptus.ledger;
+package com.github.ewbankkit;
 
 import org.apache.commons.lang3.mutable.MutableBoolean;
 import org.slf4j.Logger;
