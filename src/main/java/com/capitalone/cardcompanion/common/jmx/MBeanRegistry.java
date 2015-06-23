@@ -20,7 +20,7 @@ import java.util.Map;
  * Static utility methods pertaining to JMX.
  */
 public final class MBeanRegistry {
-    public static final String DOMAIN = "com.capitalone.cardcompanion";
+    public static final String DOMAIN = "com.github.ewbankkit";
 
     private final MBeanServer             mBeanServer      = mBeanServer();
     private final Map<ObjectName, Object> registeredMBeans = new LinkedHashMap<>();
