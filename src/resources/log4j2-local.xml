@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+//
+// Copyright (C) Capital One Labs.
+//
+-->
+<!--
+// Wallet Log4j 2 configuration.
+// Test environment.
+-->
+<Configuration status="info">
+  <Properties/>
+
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%date{yyyy/MM/dd HH:mm:ss.SSS} %-5level [%thread] [%logger{36}] %message%n"/>
+    </Console>
+  </Appenders>
+
+  <Loggers>
+      <Logger name="com.capitalone.cardcompanion" level="debug"/>
+
+      <Logger name="org.apache.commons.configuration" level="debug"/>
+
+      <Logger name="com.hazelcast" level="info"/>
+
+      <Logger name="com.netflix" level="info"/>
+
+      <Logger name="log4jdbc.log4j2" level="debug">
+        <Filters>
+          <MarkerFilter onMatch="ACCEPT" marker="LOG4JDBC_SELECT"/>
+          <MarkerFilter onMatch="ACCEPT" marker="LOG4JDBC_UPDATE"/>
+          <MarkerFilter onMatch="ACCEPT" marker="LOG4JDBC_INSERT"/>
+          <MarkerFilter onMatch="ACCEPT" marker="LOG4JDBC_DELETE"/>
+          <MarkerFilter onMatch="ACCEPT" marker="LOG4JDBC_CREATE"/>
+        </Filters>
+      </Logger>
+
+    <Root level="warn">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>
