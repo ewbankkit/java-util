@@ -6,7 +6,6 @@ package com.capitalone.cardcompanion.common.jaxrs;
 
 import com.capitalone.cardcompanion.common.base.ReflectiveRepresentation;
 import com.capitalone.cardcompanion.common.base.Throwables;
-import com.capitalone.cardcompanion.common.restclient.RestClient.RestClientException;
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 
@@ -48,9 +47,6 @@ public final class HttpStatusAndEntity {
         Preconditions.checkNotNull(e);
 
         e = Throwables.getUseful(e);
-        if (e instanceof RestClientException) {
-            return ((RestClientException)e).getOptionalHttpStatusAndEntity();
-        }
         if (e instanceof WebApplicationException) {
             Response response = ((WebApplicationException)e).getResponse();
             return Optional.of(new HttpStatusAndEntity(response.getStatus(), Optional.fromNullable(response.getEntity())));

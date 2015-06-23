@@ -4,12 +4,10 @@
 
 package com.capitalone.cardcompanion.common.rx.observers;
 
-import com.capitalone.cardcompanion.common.base.Closures;
 import com.capitalone.cardcompanion.common.jaxrs.Responses;
 import com.google.common.base.Function;
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
-import groovy.lang.Closure;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,13 +22,6 @@ public class ResourceCreatingAsyncResponseObserver<T, U> extends ConvertingAsync
     private static final Logger LOGGER = LoggerFactory.getLogger(ResourceCreatingAsyncResponseObserver.class);
 
     private final Function<T, Optional<URI>> locationSupplier;
-
-    /**
-     * Constructor.
-     */
-    public ResourceCreatingAsyncResponseObserver(AsyncResponse asyncResponse, Closure<U> converter, Closure<Optional<URI>> locationSupplier) {
-        this(asyncResponse, Closures.<T, U>toFunction(converter), Closures.<T, Optional<URI>>toFunction(locationSupplier));
-    }
 
     /**
      * Constructor.

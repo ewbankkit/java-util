@@ -4,12 +4,10 @@
 
 package com.capitalone.cardcompanion.common.rx.observers;
 
-import com.capitalone.cardcompanion.common.base.Closures;
 import com.capitalone.cardcompanion.common.jaxrs.Responses;
 import com.google.common.base.Function;
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
-import groovy.lang.Closure;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,13 +28,6 @@ public class ConvertingAsyncResponseObserver<T, U> extends AbstractAsyncResponse
         super(asyncResponse);
         Preconditions.checkNotNull(converter);
         this.converter = converter;
-    }
-
-    /**
-     * Constructor.
-     */
-    public ConvertingAsyncResponseObserver(AsyncResponse asyncResponse, Closure<U> converter) {
-        this(asyncResponse, Closures.<T, U>toFunction(converter));
     }
 
     /**

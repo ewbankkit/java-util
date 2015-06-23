@@ -4,12 +4,10 @@
 
 package com.capitalone.cardcompanion.common.rx.observers;
 
-import com.capitalone.cardcompanion.common.base.Closures;
 import com.capitalone.cardcompanion.common.jaxrs.Responses;
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
-import groovy.lang.Closure;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,13 +20,6 @@ public final class ListConvertingAsyncResponseObserver<T, U> extends AbstractAsy
     private static final Logger LOGGER = LoggerFactory.getLogger(ListConvertingAsyncResponseObserver.class);
 
     private final Function<T, U> converter;
-
-    /**
-     * Constructor.
-     */
-    public ListConvertingAsyncResponseObserver(AsyncResponse asyncResponse, Closure<U> converter) {
-        this(asyncResponse, Closures.<T, U>toFunction(converter));
-    }
 
     /**
      * Constructor.

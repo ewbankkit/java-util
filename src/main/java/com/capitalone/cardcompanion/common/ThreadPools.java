@@ -59,7 +59,6 @@ public final class ThreadPools {
             @Override
             protected void afterExecute(Runnable r, Throwable t) {
                 ExecutionContext.removeContextFromCurrentThread();
-                ApplicationLocale.removeApplicationLocaleFromCurrentThread();
                 super.afterExecute(r, t);
             }
 
@@ -71,7 +70,6 @@ public final class ThreadPools {
             protected void beforeExecute(Thread t, Runnable r) {
                 SharedRunnable sharedRunnable = (SharedRunnable)r;
                 ExecutionContext.setContextOnCurrentThread(sharedRunnable.context);
-                ApplicationLocale.setApplicationLocaleOnCurrentThread(sharedRunnable.applicationLocale);
 
                 super.beforeExecute(t, r);
             }
@@ -93,9 +91,6 @@ public final class ThreadPools {
      */
     private static final class SharedRunnable implements Runnable {
         public final ExecutionContext context = ExecutionContext.getContextForCurrentThread();
-
-        public  final ApplicationLocale applicationLocale = ApplicationLocale.getApplicationLocaleForCurrentThread();
-
         private final Runnable runnable;
 
         /**
