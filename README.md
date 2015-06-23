@@ -2,5 +2,5 @@
 Various Java utilities.
 |Version | Description|
 |:------- | -----------|
-|v0.1|Initial import|
-|v0.2|Initial building version|
+|v0.1|Initial import (NSI)|
+|v0.2|Cleansed, building version (NSI)|
