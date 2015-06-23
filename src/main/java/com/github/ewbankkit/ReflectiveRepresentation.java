@@ -360,7 +360,9 @@ public final class ReflectiveRepresentation {
                                 appendSpaces(depth, sb);
                                 sb.append("-----").append(className).append(" START-----");
                             }
-                            append(depth + 1, sb, fieldValue, methodName.substring(prefixLength), object);
+                            StringBuilder fn = new StringBuilder(methodName.substring(prefixLength));
+                            fn.setCharAt(0, Character.toLowerCase(fn.charAt(0)));
+                            append(depth + 1, sb, fieldValue, fn, object);
                         }
                         catch (Exception ignored) {}
                     }
