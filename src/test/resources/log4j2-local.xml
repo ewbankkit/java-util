@@ -5,7 +5,6 @@
 //
 -->
 <!--
-// Wallet Log4j 2 configuration.
 // Test environment.
 -->
 <Configuration status="info">
@@ -18,25 +17,7 @@
   </Appenders>
 
   <Loggers>
-      <Logger name="com.capitalone.cardcompanion" level="debug"/>
-
-      <Logger name="org.apache.commons.configuration" level="debug"/>
-
-      <Logger name="com.hazelcast" level="info"/>
-
-      <Logger name="com.netflix" level="info"/>
-
-      <Logger name="log4jdbc.log4j2" level="debug">
-        <Filters>
-          <MarkerFilter onMatch="ACCEPT" marker="LOG4JDBC_SELECT"/>
-          <MarkerFilter onMatch="ACCEPT" marker="LOG4JDBC_UPDATE"/>
-          <MarkerFilter onMatch="ACCEPT" marker="LOG4JDBC_INSERT"/>
-          <MarkerFilter onMatch="ACCEPT" marker="LOG4JDBC_DELETE"/>
-          <MarkerFilter onMatch="ACCEPT" marker="LOG4JDBC_CREATE"/>
-        </Filters>
-      </Logger>
-
-    <Root level="warn">
+    <Root level="info">
       <AppenderRef ref="Console"/>
     </Root>
   </Loggers>

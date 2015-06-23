@@ -101,13 +101,6 @@ public final class ConfigUnitTest {
     }
 
     @Test
-    public void testGetString11() {
-        Optional<String> value = config.getString("test.k");
-        assertTrue(value.isPresent());
-        assertEquals("10", value.get());
-    }
-
-    @Test
     public void testGetString12() {
         Optional<String> value = config.getString("test.l");
         assertTrue(value.isPresent());
