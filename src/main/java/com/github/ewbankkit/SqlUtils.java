@@ -5,20 +5,12 @@
 package com.github.ewbankkit;
 
 import org.apache.commons.lang3.EnumUtils;
-import org.apache.commons.lang3.StringUtils;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import java.util.function.Supplier;
 
 /**
  * SQL/JDBC utilities.
@@ -215,80 +207,5 @@ public final class SqlUtils {
             return null;
         }
         return toSqlTimestamp(instant.toEpochMilli());
-    }
-
-    private static <T> ValueStrategy<T> firstValueStrategy(final Supplier<T> factory) {
-        return resultSet -> {
-            if ((resultSet == null) || !resultSet.next()) {
-                return Optional.empty();
-            }
-            return Optional.of(factory.get());
-        };
-    }
-
-    private static <T> ValueStrategy<T> singleValueStrategy(final Supplier<T> factory) {
-        return resultSet -> {
-            List<T> list = newList(resultSet, factory);
-            int size = list.size();
-            switch (size) {
-            case 0:
-                return Optional.empty();
-            case 1:
-                return Optional.of(list.get(0));
-            default:
-                throw new SQLException(String.format("%1$s returned %2$d rows", String.valueOf(resultSet.getStatement()), size));
-            }
-        };
-    }
-
-    /**
-     * Return a new list with values from the result set.
-     */
-    private static <T> List<T> newList(ResultSet resultSet, Supplier<T> factory) throws SQLException {
-        if ((resultSet == null) || !resultSet.next()) {
-            return Collections.emptyList();
-        }
-
-        List<T> list = new ArrayList<>();
-        do {
-            list.add(factory.get());
-        } while (resultSet.next());
-
-        return Collections.unmodifiableList(list);
-    }
-
-    private static class ColumnIdentifier {
-        public final int index;
-        public final String name;
-
-        public ColumnIdentifier(int index) {
-            this(index, null);
-            if (index <= 0) {
-                throw new IllegalArgumentException();
-            }
-        }
-
-        public ColumnIdentifier(String name) {
-            this(0, name);
-            if (StringUtils.isBlank(name)) {
-                throw new IllegalArgumentException();
-            }
-        }
-
-        private ColumnIdentifier(int index, String name) {
-            this.index = index;
-            this.name = name;
-        }
-    }
-
-    /**
-     * Value getting strategy interface.
-     */
-    @FunctionalInterface
-    private interface ValueStrategy<T> {
-        /**
-         * Return any value.
-         */
-        Optional<T> value(ResultSet resultSet) throws SQLException;
     }
 }
